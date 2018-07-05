@@ -49,4 +49,4 @@ HAYSTACK_CONNECTIONS = {
     },
 }
 
-DEBUG = False
+DEBUG = True
