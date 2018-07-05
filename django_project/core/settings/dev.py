@@ -59,7 +59,7 @@ LOGGING = {
     'loggers': {
         'django.db.backends': {
             'handlers': ['console'],
-            'level': 'INFO',  # switch to DEBUG to show actual SQL
+            'level': 'DEBUG',  # switch to DEBUG to show actual SQL
         },
         'feti': {
             'handlers': ['applogfile'],
