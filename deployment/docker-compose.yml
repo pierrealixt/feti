@@ -47,12 +47,15 @@ db:
   restart: on-failure:5
   image: kartoza/postgis:9.4-2.1
   volumes:
-    #- ./pg/postgres_data:/var/lib/postgresql
+    - ./pg/postgres_data:/var/lib/postgresql
     - ./setup_data:/home/setup
     - ./backups:/backups
   environment:
     - USERNAME=docker
     - PASS=docker
+  ports:
+    - "5432:5432"
+    
 
 dbbackups:
   # Note you cannot scale if you use conteiner_name
@@ -132,7 +135,7 @@ uwsgi:
     - ./media:/home/web/media
     - ./logs:/var/log/
     - ./webroot-path:/var/www/webroot
-    - /etc/letsencrypt:/etc/letsencrypt
+    # - /etc/letsencrypt:/etc/letsencrypt
   links:
     - smtp:smtp
     - db:db
